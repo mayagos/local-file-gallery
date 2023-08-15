@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     imageFilenames.forEach(filename => {
         const downloadButton = document.createElement('a');
-        downloadButton.href = `Saved/${filename}`; // Use relative path
+        downloadButton.href = `Pictures/${filename}`; // Use relative path
         downloadButton.download = filename;
         downloadButton.textContent = `Download ${filename}`;
         downloadButton.classList.add('download-button');
