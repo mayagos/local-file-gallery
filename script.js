@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('Saved Pictures/') // Fetch the list of files from the directory
         .then(response => response.text())
         .then(data => {
-            const filenames = data.split('\n').filter(filename => filename !== 'desktop.ini');
+            const filenames = data.split('\n').filter(filename => filename && filename !== 'desktop.ini');
             filenames.forEach(filename => {
                 const downloadButton = document.createElement('a');
                 downloadButton.href = `Saved Pictures/${filename}`; // Use relative path
