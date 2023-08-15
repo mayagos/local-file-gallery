@@ -1,5 +1,5 @@
 <?php
-$directory = 'C:/Users/MajaGoschorska/Pictures/Saved Pictures';
+$directory = 'Saved Pictures';
 
 $fileList = [];
 
