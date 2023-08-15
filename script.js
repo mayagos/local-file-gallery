@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const fileListContainer = document.querySelector('.file-list');
 
-    fetch('file-list.php')
-        .then(response => response.json())
+    fetch('Saved Pictures/') // Fetch the list of files from the directory
+        .then(response => response.text())
         .then(data => {
-            data.forEach(file => {
+            const filenames = data.split('\n').filter(filename => filename !== 'desktop.ini');
+            filenames.forEach(filename => {
                 const downloadButton = document.createElement('a');
-                downloadButton.href = file.path;
-                downloadButton.download = file.name;
-                downloadButton.textContent = `Download ${file.name}`;
+                downloadButton.href = `Saved Pictures/${filename}`; // Use relative path
+                downloadButton.download = filename;
+                downloadButton.textContent = `Download ${filename}`;
                 downloadButton.classList.add('download-button');
                 fileListContainer.appendChild(downloadButton);
             });
